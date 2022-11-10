@@ -31,3 +31,16 @@ exports.room_delete = function(req, res) {
 exports.room_update_put = function(req, res) { 
     res.send('NOT IMPLEMENTED: room update PUT' + req.params.id); 
 }; 
+
+// VIEWS 
+// Handle a show all view 
+exports.room_view_all_Page = async function(req, res) { 
+    try{ 
+        theRooms = await Room.find(); 
+        res.render('room', { title: 'Room Search Results', results: theRooms }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 
