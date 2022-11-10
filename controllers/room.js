@@ -17,9 +17,25 @@ exports.room_detail = function(req, res) {
     res.send('NOT IMPLEMENTED: room detail: ' + req.params.id); 
 }; 
  
-// Handle room create on POST. 
-exports.room_create_post = function(req, res) { 
-    res.send('NOT IMPLEMENTED: room create POST'); 
+// Handle Costume create on POST. 
+exports.room_create_post = async function(req, res) { 
+    console.log(req.body) 
+    let document = new Room(); 
+    // We are looking for a body, since POST does not have query parameters. 
+    // Even though bodies can be in many different formats, we will be picky 
+    // and require that it be a json object 
+    // {"costume_type":"goat", "cost":12, "size":"large"} 
+    document.roomName = req.body.roomName; 
+    document.roomNumber = req.body.roomNumber; 
+    document.roomShape = req.body.roomShape; 
+    try{ 
+        let result = await document.save(); 
+        res.send(result); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
 }; 
  
 // Handle room delete form on DELETE. 
