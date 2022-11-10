@@ -1,8 +1,15 @@
 var Room = require('../models/room'); 
  
-// List of all rooms 
-exports.room_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: room list'); 
+// List of all Costumes 
+exports.room_list = async function(req, res) { 
+    try{ 
+        theRooms = await Room.find(); 
+        res.send(theRooms); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
 }; 
  
 // for a specific room. 
