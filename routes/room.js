@@ -14,3 +14,15 @@ var router = express.Router();
 /* GET costumes */ 
 router.get('/', room_controlers.room_view_all_Page ); 
 module.exports = router; 
+/* GET detail costume page */ 
+router.get('/detail', room_controlers.room_view_one_Page); 
+
+
+
+
+
+
+
+module.exports = router;
+
+
