@@ -10,3 +10,17 @@ a {
   background-color: aquamarine;
   width: 120px;
  }
+ .head title {
+  background-color: rgb(225, 0, 255);
+  text-align: center;
+  font-style: normal;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 200;
+ }
+ .newheading {
+  background-color: rgb(196, 255, 239);
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: italic;
+  width: 100%;
+ }

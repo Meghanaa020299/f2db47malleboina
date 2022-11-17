@@ -20,7 +20,8 @@ router.get('/detail', room_controlers.room_view_one_Page);
 router.get('/create', room_controlers.room_create_Page); 
 /* GET create update page */ 
 router.get('/update', room_controlers.room_update_Page);
-
+/* GET delete costume page */ 
+router.get('/delete', room_controlers.room_delete_Page);
 
 
 

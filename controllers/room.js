@@ -136,3 +136,16 @@ exports.room_update_Page =  async function(req, res) {
         res.send(`{'error': '${err}'}`); 
     } 
 }; 
+// Handle a delete one view with id from query 
+exports.room_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await Room.findById(req.query.id) 
+        res.render('roomdelete', { title: 'Room Delete', toShow: 
+result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 

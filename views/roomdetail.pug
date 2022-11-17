@@ -1,20 +1,23 @@
 extends layout
 block content
- h1= title
- - let roomid = toShow._id
- - let roomName = toShow.roomName
- - let roomNumber = toShow.roomNumber
- - let roomShape = toShow.roomShape
- div
-  div.row
-  div(class='roomAttr mr-3') roomid is:
-  div #{roomid}
-  div.row
-  div(class='roomAttr mr-3') roomName is:
-  div #{roomName}
-  div.row
-  div(class='roomAttr mr-3') roomNumber is:
-  div #{roomNumber}
-  div.row
-  div(class='roomAttr mr-3') roomShape is:
-  div #{roomShape}
+ h1(class='headtitle')= title
+ if (toShow == null) 
+    h2 No instance to detail
+ else
+  - let roomid = toShow._id
+  - let roomName = toShow.roomName
+  - let roomNumber = toShow.roomNumber
+  - let roomShape = toShow.roomShape
+  div
+   div.row
+   div(class='newheading') roomid is:
+   div #{roomid}
+   div.row
+   div(class='newheading') roomName is:
+   div #{roomName}
+   div.row
+   div(class='newheading') roomNumber is:
+   div #{roomNumber}
+   div.row
+   div(class='newheading') roomShape is:
+   div #{roomShape}
