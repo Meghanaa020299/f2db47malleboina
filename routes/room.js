@@ -16,8 +16,8 @@ router.get('/', room_controlers.room_view_all_Page );
 module.exports = router; 
 /* GET detail costume page */ 
 router.get('/detail', room_controlers.room_view_one_Page); 
-
-
+/* GET create costume page */ 
+router.get('/create', room_controlers.room_create_Page); 
 
 
 
