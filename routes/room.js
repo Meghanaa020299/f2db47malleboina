@@ -18,7 +18,8 @@ module.exports = router;
 router.get('/detail', room_controlers.room_view_one_Page); 
 /* GET create costume page */ 
 router.get('/create', room_controlers.room_create_Page); 
-
+/* GET create update page */ 
+router.get('/update', room_controlers.room_update_Page);
 
 
 
