@@ -8,7 +8,11 @@ const roomSchema = mongoose.Schema({
 }, 
 roomNumber: Number,
 
-roomShape: String
+roomShape:{
+  type: String,
+  minLength:3
+}
+
 })
 module.exports = mongoose.model("Room", roomSchema)
 

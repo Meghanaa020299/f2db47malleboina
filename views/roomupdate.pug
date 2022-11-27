@@ -11,7 +11,7 @@ block content
    div.row(class='mb-2') 
      div.mr-1 ID is 
      div #{roomid} 
-   - let actionid = "/resource/rooms/" + roomid
+   - let actionid = "/resource/room/" + roomid
    form(id='RoomForm', action= actionid, method="PUT") 
      div.form-group 
          label.roomAttr(for='roomName') Room Name
