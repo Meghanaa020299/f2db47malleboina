@@ -2,19 +2,19 @@ extends layout
 
 block content
   h1= title
-  
-
+  - let create = `dispatch(\"room/create\")`
+  button.btn(class="btn-primary m1-1", onclick=create) Create
   - var results = results
   div(class = 'container-fluid')
     div(class = 'row m-1')
      each item,index in results 
-      - let destination = `dispatch(\"/rooms/update?id=${item._id}\")`
-      - let detail = `dispatch(\"/rooms/update?id=${item._id}\")`
-      - let d = `dispatch(\"/rooms/update?id=${item._id}\")`
+      - let destination = `dispatch(\"/room/update?id=${item._id}\")`
+      - let detail = `dispatch(\"/room/detail?id=${item._id}\")`
+      - let dt = `dispatch(\"/room/delete?id=${item._id}\")`
       div(class="row-sm-2", class="m-1") Item #{item.roomName}(#{item.roomNumber}) is #{item.roomShape}
        button.btn( class="btn-primary ml-1", onclick= destination) Update
        button.btn( class="btn-primary ml-1", onclick= detail) Detail
-       button.btn( class="btn-primary ml-1", onclick= d) Delete
+       button.btn( class="btn-primary ml-1", onclick= dt) Delete
 
   script.
    function dispatch(path){
