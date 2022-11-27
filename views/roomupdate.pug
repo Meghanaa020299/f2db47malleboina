@@ -1,5 +1,4 @@
-extends layout 
- 
+extends layout  
 block content 
   h1= title 
   if (toShow == null) 
@@ -9,37 +8,35 @@ block content
    - let roomName = toShow.roomName 
    - let roomNumber = toShow.roomNumber 
    - let roomShape = toShow.roomShape 
-   
    div.row(class='mb-2') 
      div.mr-1 ID is 
      div #{roomid} 
    - let actionid = "/resource/rooms/" + roomid
    form(id='RoomForm', action= actionid, method="PUT") 
      div.form-group 
-         label.roomAttr(for='roomName') Room type 
+         label.roomAttr(for='roomName') Room Name
          input#roomName(type='text', name='roomName', value= roomName) 
      div.form-group 
-         label.roomAttr(for='roomNumber') Room size 
-         input#roomNumber(type='number', name='roomNumber', value= roomNumber ) 
+         label.roomAttr(for='roomNumber') Room Number
+         input#roomNumber(type='number', name='roomNumber', value= roomNumber) 
      div.form-group 
-         label.roomAttr(for='roomShape') Room cost 
+         label.roomAttr(for='roomShape') Room Shape 
          input#roomShape(type='text', name='roomShape', value= roomShape) 
      input(type="submit") 
- 
    script. 
      document.forms['RoomForm'].addEventListener('submit', (event) => { 
-     event.preventDefault(); 
+       event.preventDefault(); 
        // TODO do something here to show user that form is being submitted 
        fetch(event.target.action, { 
-         method: 'PUT', 
-         body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        method: "PUT", 
+       body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
        }).then((resp) => { 
          return resp.json(); // or resp.text() or whatever the server sends 
        }).then((body) => { 
-         alert("Save succeded") 
+         alert("Update succeded") 
          // TODO handle body 
        }).catch((error) => { 
         // TODO handle error 
-         alert("Save failed " + error ) 
+         alert("Update failed " + error ) 
        }); 
      }); 

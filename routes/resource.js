@@ -19,7 +19,7 @@ router.post('/rooms', room_controller.room_create_post);
 router.delete('/rooms/:id', room_controller.room_delete); 
  
 // PUT request to update room. 
-router.put('/rooms/:id', room_controller.room_update_put); 
+router.put('/room/:id', room_controller.room_update_put); 
  
 // GET request for one room. 
 router.get('/rooms/:id', room_controller.room_detail); 

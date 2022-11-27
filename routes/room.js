@@ -10,7 +10,18 @@
 var express = require('express'); 
 const room_controlers= require('../controllers/room'); 
 var router = express.Router(); 
- 
+
+ // A little function to check if we have an authorized user and continue on
+
+// redirect to login.
+const secured = (req, res, next) => {
+ if (req.user){
+ return next();
+ }
+ req.session.returnTo = req.originalUrl;
+ res.redirect("/login");
+ }
+
 /* GET costumes */ 
 router.get('/', room_controlers.room_view_all_Page ); 
 module.exports = router; 
@@ -19,7 +30,7 @@ router.get('/detail', room_controlers.room_view_one_Page);
 /* GET create costume page */ 
 router.get('/create', room_controlers.room_create_Page); 
 /* GET create update page */ 
-router.get('/update', room_controlers.room_update_Page);
+router.get('/update',secured, room_controlers.room_update_Page);
 /* GET delete costume page */ 
 router.get('/delete', room_controlers.room_delete_Page);
 
